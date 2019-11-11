@@ -2,19 +2,19 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Matakuliah extends CI_Controller
+class Mahasiswa extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("matakuliah_model");
+        $this->load->model("mahasiswa_model");
         $this->load->library('form_validation');
     }
 
     public function index()
     { 
-        $data["matakuliah"] = $this->matakuliah_model->getAll();
-        $this->load->view("matakuliah/list", $data);
+        $data["mahasiswa"] = $this->mahasiswa_model->getAll();
+        $this->load->view("mahasiswa/list", $data);
     }
 
     public function add()
@@ -54,8 +54,8 @@ class Matakuliah extends CI_Controller
     {
         if (!isset($unx)) show_404();
         
-        if ($this->matakuliah_model->delete($unx)) {
-            redirect(site_url('matakuliah'));
+        if ($this->mahasiswa_model->delete($unx)) {
+            redirect(site_url('mahasiswa'));
         }
     }
 }
